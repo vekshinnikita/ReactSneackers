@@ -75,6 +75,7 @@ class Product(models.Model):
         verbose_name_plural = "Товары"
     
     def url_poster(self):
+        print(URL_HOST)
         return (URL_HOST + self.poster.url)
 
 
@@ -87,7 +88,7 @@ class ProductShots(models.Model):
         verbose_name_plural = "Изображения"
     
     def url(self):
-        return (URL_HOST + self.image.url)
+        return URL_HOST + self.image.url
 
     
 class RatingStar(models.Model):
@@ -117,7 +118,7 @@ class Review(models.Model):
 
     def user_photo(self):
         try:
-            return (URL_HOST + self.user.photo.url)
+            return URL_HOST + self.user.photo.url
         except:
             return None
 

@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG", default=0)))
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','2.59.43.39']
 
 
 # Application definition
@@ -147,8 +147,8 @@ USE_L10N = True
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'nikitagolustian@gmail.com'
-EMAIL_HOST_PASSWORD = 'ysurqbkrqzdmakrc'
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "user")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "password")
 EMAIL_PORT = 587
 
 
@@ -208,7 +208,8 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://127.0.0.1.3000',
+    'http://2.59.43.39'
 ]
 
-URL_HOST = 'http://' + os.environ.get("HOST", "127.0.0.1:3000"),
+URL_HOST = 'http://' + os.environ.get("HOST", "127.0.0.1:3000")
 
