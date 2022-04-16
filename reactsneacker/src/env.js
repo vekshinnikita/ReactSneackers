@@ -1,1 +1,1 @@
-export const API_URL = 'http://' + '2.59.43.39' + '/api'
+export const API_URL = 'http://' + '0.0.0.0' + '/api'
