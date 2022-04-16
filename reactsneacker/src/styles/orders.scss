@@ -1,0 +1,26 @@
+.titleOrders{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px ;
+    margin: 20px;
+    border-bottom: $border;
+    span{
+        display: flex;
+        h2{ 
+            font-size: 1.4em;
+        }
+        p{
+            margin: auto;
+            margin-left: 10px;
+            color: #bdbdbd;
+            font-size: 1.2em;
+        }
+    }
+}
+.delivered{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 40px;
+    font-size: 1.2em;
+    margin-right: 10px;
+}

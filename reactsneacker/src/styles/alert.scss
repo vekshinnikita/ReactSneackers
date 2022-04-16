@@ -1,0 +1,42 @@
+.dropdown-alert{
+    border-radius: 10px;
+}
+.alert-errors{
+    position: fixed;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    text-align: center;
+    margin: 0 auto;
+    z-index: 30;
+
+    @media(max-width: 1200px){
+        left: 10%;
+        width: 80%;
+    }
+    @media(max-width: 560px){
+        left: 5%;
+        width: 90%;
+    }
+}
+.dropdown-alert-enter{
+    opacity: 0;
+    transform: scale(0.9) translateY(-50px);
+}
+.dropdown-alert-enter-active{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    transition: opacity 500ms, transform 500ms;
+}
+.dropdown-alert-exit{
+    opacity: 1;
+}
+.dropdown-alert-exit-active{
+    opacity: 0;
+    transform: scale(0.9) translatex(500px) ;
+    transition: opacity 500ms, transform 500ms;
+}
+.MuiPaper-root{
+    font-size: 1em !important;
+    border-radius: 10px !important;
+}

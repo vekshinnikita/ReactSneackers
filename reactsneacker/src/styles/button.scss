@@ -1,0 +1,489 @@
+@import 'variable';
+
+
+.check [type=checkbox]{
+    display: block;
+}
+
+.button{
+    width: 32px;
+    height: 32px;
+    border: $border;
+    color: $btnColor;
+    background-color: #FFFFFF;
+    border-radius: 0.5em;
+    transition: all .4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.btn-success{
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background: #a6d363;
+    border-radius: 1em;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all .2s ease;
+    &:before{
+        content: "";
+        opacity: 0;
+        transition: all ease .4s;
+        width: 100%;
+        border-radius: 15px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        z-index: 15;
+    }
+    
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::before{
+            opacity: 1;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active::before{
+            opacity: 1;
+        }
+    }
+}
+
+.checkbox-add{
+    position: absolute;
+    opacity: 0;
+    height: 2.4em!important;
+    width: 2.4em!important;
+    &:checked + .hover-add::before{
+        opacity: 1;
+    }
+}
+.checkbox-like{
+    position: absolute;
+    opacity: 0;
+    &:checked + .btn-like{
+        text-shadow: none;
+        color:  #FF8585;
+        background-color: #FEF0F0;
+        border-color: #FEF0F0;
+        i{
+            font-size: 1.15em;
+        }
+    }
+}
+.hover-add{
+    transition: all .5s ease;
+    opacity: 1;
+    height: 2.4em!important;
+    width: 2.4em!important;
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{
+            color:#FFFFFF;
+            background-color: #4edf68 ;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active{
+            color:#FFFFFF;
+            background-color: #4edf68 ;
+        }
+    }
+    
+}
+
+.hover-add::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: linear-gradient(180deg, #9effaf 0%, #03c426 100%);
+    height: 2.4em!important;
+    width: 2.4em!important;
+    border: solid 1px #4edf68;
+    border-radius: 0.5em;
+    color: #FFFFFF;
+    display:flex;
+    opacity: 0;
+    transition: all .4s ease;
+}
+.btn-like{
+    color: #fff;
+    font-weight: bolder;
+    height: 2.4em!important;
+    width: 2.4em!important;
+    text-shadow: 1.4px 0 0px #e0e0e0, 
+                0 1.4px 0px #e0e0e0, 
+                -1.4px 0 0px #e0e0e0, 
+                0 -1.4px 0px #e0e0e0;
+    border: $border;
+    transition: all ease-in-out .4s;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{
+            background-color: #FEF0F0;
+            text-shadow: none;
+            border-color: #FEF0F0;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active{
+            background-color: #FEF0F0;
+            text-shadow: none;
+            border-color: #FEF0F0;
+        }
+    }
+}
+@media (hover: hover) and (pointer: fine) {
+    .btn-delete:hover{
+        background-color: #fb7070;
+        color: #ffffff;
+        border-color: #fb7070;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .btn-delete:active{
+        background-color: #fb7070;
+        color: #ffffff;
+        border-color: #fb7070;
+    }
+}
+
+
+.btn-order{
+    position: relative;
+    i{
+        transition: transform .4s ease;
+        position: absolute;
+        right: 60px;
+        margin: auto 0;
+        @media(max-width: 576px){
+            right:30px;
+        }
+    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{
+            i{
+                transform: translateX(30px);
+                @media(max-width: 576px){
+                    transform: translateX(15px);
+                }
+            }
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active{
+            i{
+                transform: translateX(30px);
+                @media(max-width: 576px){
+                    transform: translateX(15px);
+                }
+            }
+        }
+    }
+    
+}
+.btn-back{
+    position: relative;
+    display: flex;  
+    
+    justify-content: center;
+    align-items: center;
+    
+    i{
+        position: absolute;
+        left: 20px;
+        @media(max-width: 576px){
+            left: 10px;
+            
+        }
+    }
+    font-size: 1em;
+    @media(max-width: 576px){
+        height: 40px;
+
+    }
+}
+
+.btn-previous{
+    margin-right: 20px;
+    transition: all .4s ease;
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{
+            color: #fff;
+            background-color: #eeeeee;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active{
+            color: #fff;
+            background-color: #eeeeee;
+        }
+    }
+    
+}
+
+.checkbox-filter{
+    position: absolute;
+    opacity: 0;
+
+    &:checked + .btn-filter{
+        background-color: #41bbef;
+        color: #fff;
+    }
+}
+
+.btn-filter{
+    color: #000;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+    color:  $btnColor;
+    font-size: 20px;
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover{
+            background-color: #e6e6e6;
+            color:  #929292;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active{
+            background-color: #e6e6e6;
+            color:  #929292;
+        }
+    }
+    
+}
+.btn-add-basket{
+    width: 80%;
+    font-size: 1em;
+    @media(max-width: 1200px) {
+        width: 80%;
+        height: 45px;
+    }
+    @media(max-width: 760px) {
+        width: 80%;
+        height: 45px;
+    }
+}
+.btn-review{
+    border-radius: 10px;
+    width: auto;
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-size: 1em;
+    height: 1em;
+    box-sizing: content-box;
+    white-space:nowrap;
+    @media(max-width: 568px){
+        font-size: 0.9em;
+        padding: 12px 10px;
+    }
+    @media(max-width: 350px){
+        white-space: normal;
+    }
+}
+.btn-edit{
+    position: absolute;
+    right: 20px;
+    background-color: #41bbef;
+    top:20px;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    padding: 10px 30px;
+    &:before{
+        content: "";
+        opacity: 0;
+        transition: all ease .4s;
+        width: 100%;
+        border-radius: 15px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+    }
+    @media(max-width: 450px) {
+        font-size: 1.1em;
+        padding: 13px 30px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::before{
+            opacity: 1;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active::before{
+            opacity: 1;
+        }
+    }
+}
+.btn-profile{
+    background: #a6d363;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    padding: 10px 30px;
+    position: relative;
+    &:before{
+        content: "";
+        opacity: 0;
+        transition: all ease .4s;
+        width: 100%;
+        border-radius: 15px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+    }
+    @media(max-width: 450px) {
+        font-size: 1.1em;
+        padding: 13px 30px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::before{
+            opacity: 1;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active::before{
+            opacity: 1;
+        }
+    }
+    
+}
+
+.btn-save-info{
+
+    max-width: 140px;
+    z-index: 30;
+    position: absolute;
+    bottom: 20px;
+    opacity: 0;
+    pointer-events: none;
+    right: 70px;
+    transition: all ease .4s;
+}
+.btn-save-info-active{
+    pointer-events: all;
+    opacity: 1;
+}
+
+.btn-close{
+    height: 40px;
+    width: 40px;
+    font-size: 24px;
+    top:10px;
+    left: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0);
+    color: $btnColor;
+    position: fixed;
+    z-index: 30;
+    @media(max-height: 950px) {
+        top:0;
+        left: 0;
+    }
+    
+
+    &:before{
+        content: "";
+        opacity: 0;
+        transition: all ease .4s;
+        top:0;
+        left:0;
+        width: 100%;
+        border-radius: 8px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        z-index: 15;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::before{
+            opacity: 1;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active::before{
+            opacity: 1;
+        }
+    }
+}
+.btn-burger{
+    position: relative;
+    border:none;
+    font-size: 20px;
+    color: black;
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    display: none;
+    z-index: 1;
+    @media(max-width: 768px){
+        display: block;
+    }
+
+    &:before{
+        content: "";
+        opacity: 0;
+        transition: all ease .4s;
+        top:0;
+        left:0;
+        width: 100%;
+        border-radius: 8px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        position: absolute;
+        z-index: 15;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover::before{
+            opacity: 1;
+        }
+    }
+    
+    @media (hover: none) and (pointer: coarse) {
+        &:active::before{
+            opacity: 1;
+        }
+    }
+    
+}

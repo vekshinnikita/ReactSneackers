@@ -1,0 +1,126 @@
+.overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 20;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+    
+}
+
+.overlayActive{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.basket{
+    transition: transform .5s ease;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transform: translateX(385px);
+    height: 100vh;
+    width: 385px;
+    position: absolute;
+    top:0;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    right:0;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 25;
+    font-size: 16px;
+    @media(max-width: 576px){
+        width: 300px;
+        font-size: 15px;
+
+    }
+
+
+    h1{
+        font-size: 1.5em;
+    }
+}
+
+.basketActive{
+    transform: translateX(0);
+}
+
+.cardsRow{
+    margin: 30px 0;
+    overflow: auto;
+    flex: 1;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    padding: 15px 10px 15px 20px;
+    border-radius: 20px;
+    border: 1px solid #F3F3F3;
+    align-items: center;
+    margin-bottom: 20px;
+    
+    img{
+        max-height: 4.3rem;
+        max-width: 80px;
+        margin-right: 10px;
+    }
+    div{
+        max-width: 150px;
+        font-size: 0.9em;
+        line-height: 17px;
+        p{
+            margin-bottom: 8px;
+        }
+    }
+}
+.totalPrice{
+    padding: 0;
+    li{
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 20px;
+        font-size: 1em;
+        line-height: 19px;      
+        
+        div{
+            flex:1;
+            border-bottom: 1px dashed #DFDFDF;
+            position: relative;
+            top: -4px;
+            margin: 0 7px;
+        }
+    }
+}
+
+.emptyBasket{
+    padding: 50px;
+    text-align: center;
+    @media(max-width: 576px){
+        padding: 25px;
+    }
+
+    img{
+        height: 120px;
+        width: 120px;
+        margin-bottom: 20px;
+    }
+    h3{
+        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 1.37em;
+    }
+    p{
+        font-size: 1em;
+        color: #7f7f7f;
+        margin-bottom: 40px;
+    }
+
+}

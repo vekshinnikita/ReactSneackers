@@ -1,0 +1,113 @@
+
+.profile{
+    display: flex;
+    position: relative;
+    padding: 60px 60px 80px 30px;
+    font-size: 16px;
+    @media(max-width: 992px) {
+        font-size: 10px;
+    }
+    @media(max-width: 760px) {
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        font-size: 16px;
+    }
+    @media(max-width: 576px) {
+        padding:80px 0;
+    }
+
+
+    .profileImg{
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        justify-content: center;
+        align-items: center;
+        @media(max-width: 760px) {
+           width: 100%;
+            margin-bottom: 20px;
+        }
+        
+
+        div{
+            height: 198px;
+            width: 198px;
+            overflow: hidden;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        img{
+            height: 100%;
+
+            
+        }
+        button{
+            margin-top: 10px;
+        }
+    }
+
+    .mainInfo{
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+        flex:1;
+        justify-content: space-around;
+        max-width: 270px;
+        @media(max-width: 760px) {
+            margin: 0;
+        }
+    }
+    .contactInfo{
+        display: flex;
+        flex:1;
+        flex-direction: column;
+        margin-left: 30px;
+        justify-content: space-around;
+        @media(max-width: 760px) {
+            margin: 0;
+        }
+    }
+}
+
+.profileInput{
+    z-index: 15;
+    padding: 10px 0 !important;
+    border-radius: 10px;
+    background-color: #fff;
+    position: relative;
+    label{
+        margin: 5px 0 0 5px;
+    }
+    @media(max-width: 760px) {
+        margin-bottom: 10px !important;
+        input,label{
+            font-size: 20px;
+        }
+
+    }
+}
+
+.wrap-signin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+
+}
+.signin{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+
+    button{
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+}
