@@ -19,14 +19,11 @@ services:
       - db
 
   db:
-    build:
-      context: ./db
-      dockerfile: Dockerfile
+    image: postgres:alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - ./.env.db
-    restart: unless-stopped
 
   frontend:
     build:
