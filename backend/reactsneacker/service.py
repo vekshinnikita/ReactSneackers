@@ -7,7 +7,7 @@ import math
 
 
 class PaginationProduct(PageNumberPagination):
-    page_size = 40
+    page_size = 10
     max_page_size = 1000
 
     def get_paginated_response(self, data):
