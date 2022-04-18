@@ -15,7 +15,10 @@ export default function useScroll(parentRef, childRef, callback){
             }
         }, options)
 
-        observer.current.observe(childRef.current)
+        setTimeout(() => {
+            observer.current.observe(childRef.current)}
+            ,1000)
+        
 
         return function(){
             observer.current.unobserve(childRef.current)
