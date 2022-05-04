@@ -56,7 +56,7 @@ services:
     volumes:
       - letsencrypt_etc:/etc/letsencrypt
       - letsencrypt_www:/var/www/letsencrypt
-    command: certonly --webroot --webroot-path=/var/www/letsencrypt --email vekshinnikita@yandex.ru --agree-tos --no-eff-email -d sneackers.site -d www.sneackers.site
+    command: certonly --webroot --webroot-path=/var/www/letsencrypt --email vekshinnikita@yandex.ru --agree-tos --no-eff-email -d sneackers.site
     depends_on:
       - proxy
   
