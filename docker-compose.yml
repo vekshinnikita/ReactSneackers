@@ -45,13 +45,26 @@ services:
     volumes:
       - static_volume:/usr/src/app/backend/static
       - media_volume:/usr/src/app/backend/media
+      - letsencrypt_etc:/etc/letsencrypt
     depends_on:
       - backend
       - frontend
+
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    volumes:
+      - letsencrypt_etc:/etc/letsencrypt
+      - letsencrypt_www:/var/www/letsencrypt
+    command: certonly --webroot --webroot-path=/var/www/letsencrypt --email vekshinnikita@yandex.ru --agree-tos --no-eff-email -d sneackers.site -d www.sneackers.site
+    depends_on:
+      - proxy
   
   
 
 volumes:
+  letsencrypt_www:
+  letsencrypt_etc:
   postgres_data:
   static_volume:
   media_volume:

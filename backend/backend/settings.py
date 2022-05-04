@@ -207,9 +207,10 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'http://127.0.0.1.3000',
+    'http://127.0.0.1:3000',
     'http://2.59.43.39'
 ]
+
 
 URL_HOST = 'http://' + os.environ.get("HOST", "127.0.0.1:3000")
 
