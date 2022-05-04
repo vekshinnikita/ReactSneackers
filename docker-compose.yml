@@ -52,7 +52,7 @@ services:
 
   certbot:
     image: certbot/certbot
-    restart: unless-stopped
+
     volumes:
       - letsencrypt_etc:/etc/letsencrypt
       - letsencrypt_www:/var/www/letsencrypt
