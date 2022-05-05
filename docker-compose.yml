@@ -48,17 +48,19 @@ services:
       - media_volume:/usr/src/app/backend/media
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
+    restart: unless-stopped
     depends_on:
       - backend
       - frontend
+    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
 
   certbot:
     image: certbot/certbot
-
+    restart: unless-stopped
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    command: certonly --webroot --webroot-path=/var/www/certbot --email vekshinnikita@yandex.ru --agree-tos --no-eff-email -d sneackers.site
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
     depends_on:
       - nginx
   
