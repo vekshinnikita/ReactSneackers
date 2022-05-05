@@ -46,8 +46,8 @@ services:
     volumes:
       - static_volume:/usr/src/app/backend/static
       - media_volume:/usr/src/app/backend/media
-      - letsencrypt_etc:/etc/letsencrypt
-      - letsencrypt_www:/var/www/letsencrypt
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     depends_on:
       - backend
       - frontend
@@ -56,8 +56,8 @@ services:
     image: certbot/certbot
 
     volumes:
-      - letsencrypt_etc:/etc/letsencrypt
-      - letsencrypt_www:/var/www/letsencrypt
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
     command: certonly --webroot --webroot-path=/var/www/letsencrypt --email vekshinnikita@yandex.ru --agree-tos --no-eff-email -d sneackers.site
     depends_on:
       - nginx
@@ -65,8 +65,6 @@ services:
   
 
 volumes:
-  letsencrypt_www:
-  letsencrypt_etc:
   postgres_data:
   static_volume:
   media_volume:
