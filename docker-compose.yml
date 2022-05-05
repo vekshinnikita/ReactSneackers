@@ -47,6 +47,7 @@ services:
       - static_volume:/usr/src/app/backend/static
       - media_volume:/usr/src/app/backend/media
       - letsencrypt_etc:/etc/letsencrypt
+      - letsencrypt_www:/var/www/letsencrypt
     depends_on:
       - backend
       - frontend
