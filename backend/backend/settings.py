@@ -217,3 +217,4 @@ CORS_ORIGIN_WHITELIST = [
 
 URL_HOST = 'https://' + os.environ.get("HOST", "127.0.0.1:3000")
 
+CSRF_TRUSTED_ORIGINS = ['https://sneackers.site']
