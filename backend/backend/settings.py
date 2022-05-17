@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.environ.get("DEBUG", default=0)))
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','2.59.43.39']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','2.59.43.39','sneackers.site']
 
 
 # Application definition
@@ -208,9 +208,12 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'http://2.59.43.39'
+    'http://2.59.43.39',
+    'https://localhost:3000',
+    'https://127.0.0.1:3000',
+    'https://sneackers.site',
 ]
 
 
-URL_HOST = 'http://' + os.environ.get("HOST", "127.0.0.1:3000")
+URL_HOST = 'https://' + os.environ.get("HOST", "127.0.0.1:3000")
 
