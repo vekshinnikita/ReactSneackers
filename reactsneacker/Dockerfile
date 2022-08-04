@@ -6,6 +6,9 @@ WORKDIR /usr/src/app/frontend
 
 COPY . .
 
+
 RUN npm install -g serve
+
+EXPOSE 3000
 
 
