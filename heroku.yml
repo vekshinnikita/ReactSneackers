@@ -1,72 +1,64 @@
-version: '3'
+setup:
+ addons:
+   - plan: heroku-postgresql
+
+build:
+  docker:
+
+    backend:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      env_file:
+        - ./backend/.env.dev
+      expose:
+        - 8000
+      restart: unless-stopped
+
+    frontend:
+      build:
+        context: ./reactsneacker
+        dockerfile: Dockerfile
+      expose:
+        - 3000
+      restart: unless-stopped
+      command: serve -s build -l 3000
+      depends_on:
+        - backend
+
+    nginx:
+      build:
+        context: ./nginx
+        dockerfile: Dockerfile
+      ports:
+        - "80:80"
+        - "443:443"
+      restart: unless-stopped
+      depends_on:
+        - backend
+        - frontend
+
+  # db:
+  #   image: postgres:alpine
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+  #   env_file:
+  #     - ./.env.db
 
 
-services:
-
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    env_file:
-      - ./backend/.env.dev
-    volumes:
-      - static_volume:/usr/src/app/backend/static
-      - media_volume:/usr/src/app/backend/media
-    expose:
-      - 8000
-    restart: unless-stopped
-    depends_on:
-      - db
-
-  db:
-    image: postgres:alpine
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - ./.env.db
-
-  frontend:
-    build:
-      context: ./reactsneacker
-      dockerfile: Dockerfile
-    expose:
-      - 3000
-    restart: unless-stopped
-    command: serve -s build -l 3000
-    depends_on:
-      - backend
-
-  nginx:
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - static_volume:/usr/src/app/backend/static
-      - media_volume:/usr/src/app/backend/media
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    restart: unless-stopped
-    depends_on:
-      - backend
-      - frontend
-    command: '/bin/sh -c ''while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g "daemon off;"'''
-
-  certbot:
-    image: certbot/certbot
-    restart: unless-stopped
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    depends_on:
-      - nginx
+  # certbot:
+  #   image: certbot/certbot
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ./certbot/conf:/etc/letsencrypt
+  #     - ./certbot/www:/var/www/certbot
+  #   entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  #   depends_on:
+  #     - nginx
   
   
 
-volumes:
-  postgres_data:
-  static_volume:
-  media_volume:
+# volumes:
+#   postgres_data:
+#   static_volume:
+#   media_volume:

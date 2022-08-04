@@ -88,5 +88,4 @@ media
 static
 .env
 db.sqlite3
-.env.dev
 env
