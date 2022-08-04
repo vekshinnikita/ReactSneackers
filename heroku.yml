@@ -9,9 +9,7 @@ build:
       build:
         context: ./backend
         dockerfile: Dockerfile
-      env_file:
-        - ./backend/.env.dev
-      expose:
+      expose: 
         - 8000
       restart: unless-stopped
 
